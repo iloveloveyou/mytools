@@ -1,0 +1,1 @@
+export PATH=$FLASH_CC:$PATH

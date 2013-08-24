@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/tools/percona5.6.12rc2/scripts/mysql_install_db --basedir=/opt/tools/percona5.6.12rc2 --datadir=/opt/data/percona/3316 --defaults-file=/opt/tools/percona5.6.12rc2/my.cnf

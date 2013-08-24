@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Listen on port 6666"
+#nc -l -p 6666 &
+#on mac osx
+nc -l 127.0.0.1 6666
+#curl  --request POST --data-binary "@test_binary" http://localhost:6666

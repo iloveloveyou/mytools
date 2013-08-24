@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/tools/percona5.6.12rc2/bin/mysqld_multi --defaults-file=/opt/data/percona/my_multi.cnf  --log=/opt/data/percona/mysqld.log --user=root start 6 

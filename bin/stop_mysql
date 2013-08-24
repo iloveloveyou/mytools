@@ -1,0 +1,4 @@
+#!/usr/bin/perl -w
+my $ib1=$ARGV[0];
+$mysql_stop="/opt/tools/percona5.6.12/bin/mysqld_multi --defaults-file=/etc/my_multi.cnf stop $ib1 --log=/var/log/mysqld.log";
+`$mysql_stop`;
