@@ -1,0 +1,3 @@
+#!/bin/bash
+#LUA_PATH="/opt/tools/dbtest/share/mysql-proxy/*.lua"
+/opt/tools/dbtest/bin/mysql-proxy --proxy-backend-addresses=192.168.1.183:3302 --pid-file=/tmp/proxy_id --proxy-lua-script=/opt/tools/mytools/conf/profiler-lua/query-time.lua
