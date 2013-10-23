@@ -1,0 +1,54 @@
+upstream testmysql {
+            drizzle_server 192.168.1.78:3301 dbname=webauth  charset=utf8
+                 password=123456 user=replication protocol=mysql ;
+}
+server
+  {
+   listen       81;
+   server_name  sc.dev;
+	location / {
+		 content_by_lua '
+				local json = require "cjson"
+				local doSql = "	SELECT  UNIX_TIMESTAMP() AS unixtime " ;
+				local res = ngx.location.capture("/query", { method = ngx.HTTP_POST, body = "", args = {sql = doSql} }) 
+				local tid = res.header["X-Mysql-Tid"];
+			        if tid and tid ~= "" then
+			  		ngx.location.capture("/kill", { args = {tid = tid} })
+			        end
+				if res.status == ngx.HTTP_OK and res.body ~="[]" then
+					 ngx.say("当前DB时间戳为：" .. json.decode(res.body)[1].unixtime .. "。时间戳能显示表示LUA环境正常。");
+				else
+					ngx.say("DB查询失败或DB连接有误。");
+				end
+		        ';
+	}
+	location /query {
+			allow 127.0.0.1;
+			deny all;
+			set_by_lua $my_sql 'return ngx.unescape_uri(ngx.var.arg_sql);';
+            drizzle_query $my_sql;
+	        drizzle_pass testmysql;
+	        drizzle_module_header off;
+			#drizzle_connect_timeout    500ms; # default 60s
+			#drizzle_send_query_timeout 2s;    # default 60s
+			#drizzle_recv_cols_timeout  1s;    # default 60s
+			#drizzle_recv_rows_timeout  1s;    # default 60s
+			rds_json on;
+			more_set_headers -s 504 'X-Mysql-Tid: $drizzle_thread_id';
+    }
+
+	location /kill {
+                allow 127.0.0.1;
+                deny all;
+	        drizzle_query "kill query $arg_tid";
+	        drizzle_pass testmysql;
+	        rds_json on;
+    	}
+
+	location /mysql-pool-status {
+                allow 127.0.0.1;
+                deny all;
+                drizzle_status;
+        }
+  }
+

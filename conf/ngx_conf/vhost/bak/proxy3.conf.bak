@@ -1,0 +1,77 @@
+server
+  {
+   listen       8003 ;
+   server_name default;
+   charset utf-8;
+   index index.html index.htm index.php;
+   root /opt/htdocs/clusters3;
+   access_log logs/ssc3.log access;
+   error_page 403 /errorMessage.html;
+   rewrite "^(.*)(ogg|mp3|gif|jpg|jpeg|png|bmp|swf)\.auth$" $1$2;
+
+    if (!-e $request_filename) {
+		rewrite_by_lua "
+			ngx.say("Hello world!");
+			ngx.exit(ngx.HTTP_OK);
+		";
+
+
+        rewrite "/(.*)f/mobi/.auth$" /login.php?r=$1f/mobi/user/login.html break;
+        rewrite "/(.*)f/mobi/user/login.html.auth$" /login.php?r=$1f/mobi/user/login.html break;
+        rewrite "/(.*)f/mobi/index/.auth$" /login.php?r=$1f/mobi/index/ break;
+        rewrite "^/(.*)f_[0-9]+/(ssc|klc)/mobi/(.*).html$" /mobi/$2html/$3.html?co=$1&sysFlag=$2&shortFlag=f break;
+        rewrite "/(.*)([a|c])/.*auth$" /login.php?r=$1$2/account/login.html break;
+        rewrite "/(.*)f/.*auth$" /login.php?r=$1f/user/login.html break;
+        rewrite "/(.*)([a|c])/account/login.html.auth$" /login.php?r=$1$2/account/login.html break;
+        rewrite "/(.*)f/user/login.html.auth$" /login.php?r=$1f/user/login.html break;
+    }
+
+   location ~* .auth$ {
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass   http://sscauth;
+    }
+    location ~ ^(.+\.php)(.*)$ {
+      #if ($remote_addr ~* '(101.226|180.153|112.64).*'){
+        #rewrite ".*" http://www.baidu.com permanent ;
+      #}
+      include extend/fcgi.conf;
+    }
+   location = /iz.php {
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass  http://ssc3;
+   }
+    location /hub/ {
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass  http://ssc3;
+    }
+    location / {
+        rewrite_by_lua_file '/usr/local/nginx/conf/vhost/web.lua';
+        proxy_set_header Host $host:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass  http://ssc3;
+    }
+
+    location ~ .*\.(ogg|mp3|gif|jpg|jpeg|png|bmp|swf).*$
+    {
+      access_log off;
+      expires      30d;
+    }
+    location ~ .*\.(txt|js|css|html)?$
+    {
+      access_log off;
+      expires 7d;
+    }
+
+    location /NginxStatus/ {
+      stub_status on;
+      #access_log on;
+    }
+
+}

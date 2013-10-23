@@ -1,0 +1,75 @@
+server
+  {
+   listen       81;
+   server_name  sc81.dev;
+   index index.html index.htm index.php;
+   charset utf-8;
+   root /var/www/WWW_SSC_DEV/www;
+   #root /var/www/ssc_klc_lua/www;
+   #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+   #                   '$status $body_bytes_sent "$http_referer" '
+   #                   '"$http_user_agent" "$http_x_forwarded_for"';
+   #access_log logs/ssc.dev.log main;
+   location /NginxStatus/ {
+     stub_status on;
+     access_log on;
+   }
+   error_page 403 /errorMessage.html;  
+
+    location ~* .auth$ {  
+        proxy_pass   http://webauth.dev;  
+    } 
+
+
+   if (!-e $request_filename) {
+
+        rewrite "/hub/js/(.*)$" /hub/js/$1 last;
+        rewrite "/hub/images/(.*)$" /hub/images/$1 last;
+        rewrite "/hub/css/(.*)$" /hub/css/$1 last;
+
+	rewrite "/hub/(.*).auth$" /hub/$1.auth last;
+        rewrite "/hub/(.*)$" /index.php?r=hub/$1 last;
+
+	rewrite "^(.*).(gif|png|jpg|js|css)" $1.$2 last;
+	rewrite "^/(.*[a|c|f]{1})_[0-9]+/(.*).html" /$2.html last;
+		
+        rewrite "^/(.*)([a|c]{1})/login/(.*)/.*$" /index.php?co=$1$2&r=site/login&shortFlag=$2&ukey=$3 last;
+        rewrite "/(.*)f/login/(.*)/.*$" /index.php?co=$1f&r=site/login&shortFlag=f&ukey=$2 last;
+	rewrite "^/(.*)([a|c|f]{1})_[0-9]+/(ssc|klc)/logout$" /index.php?co=$1$2&r=site/logout&shortFlag=$2&sysFlag=$3 last;
+    	rewrite "^/(.*)([a|c]{1})_[0-9]+/(ssc|klc)/index.htm$" /index.php?co=$1$2&r=$3Backend&sysFlag=$3&shortFlag=$2 last;
+	rewrite "^/(.*)f_[0-9]+/(ssc|klc)/index.htm$" /index.php?co=$1&r=$2Frontend&sysFlag=$2&shortFlag=f last;
+    	rewrite "^/(.*)([a|c]{1})_[0-9]+/(ssc|klc)/(.*)$" /index.php?co=$1$2&r=$3Backend/$4&sysFlag=$3&shortFlag=$2 last;
+	rewrite "^/(.*)f_[0-9]+/(ssc|klc)/(.*)$" /index.php?co=$1f&r=$2Frontend/$3&sysFlag=$2&shortFlag=f last;
+	rewrite "^/site/(.*)$" /index.php?&r=site/$1 last;
+
+   }
+
+ 
+
+
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+    {
+      #root /var/www/WWW_SSC_DEV/www/static/cache; 
+      access_log off;  
+      expires      30d;
+    }
+    location ~ .*\.(js|css|html)?$
+    {
+      #root /var/www/WWW_SSC_DEV/www/static/cache;
+      access_log off; 
+      expires 7d;
+    }
+
+
+  location ~ ^(.+\.php)(.*)$ {
+      fastcgi_pass   192.168.1.75:9000;
+      fastcgi_index  index.php;
+      include fcgi.conf;
+    }
+
+
+
+
+
+  }
+

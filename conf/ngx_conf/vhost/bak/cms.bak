@@ -1,0 +1,29 @@
+server
+  {
+	listen       80;
+	server_name phpcms.dev;
+	index index.html index.htm index.php;
+	root /opt/htdocs/phpcms;
+	if (!-e $request_filename) {
+#		rewrite ^(.*)$ /index.php?$1 break;
+		rewrite "^content-([0-9]+)-([0-9]+)-([0-9]+).html" index.php?m=content&c=index&a=show&catid=$1&id=$2&page=$3 break;
+		rewrite "^show-([0-9]+)-([0-9]+)-([0-9]+).html" index.php?m=content&c=index&a=show&catid=$1&id=$2&page=$3 break;
+		rewrite "^list-([0-9]+)-([0-9]+).html" index.php?m=content&c=index&a=lists&catid=$1&page=$2 break;
+	}
+	location ~ ^(.+\.php)(.*)$ {
+		    include fcgi.conf;
+	}
+}
+server
+  {
+	listen       80;
+	server_name concrete.lo;
+	index index.html index.htm index.php;
+	root /opt/htdocs/concrete;
+	if (!-e $request_filename) {
+		rewrite ^(.*)$ /index.php?$1 break;
+	}
+	location ~ ^(.+\.php)(.*)$ {
+		    include fcgi.conf;
+	}
+}

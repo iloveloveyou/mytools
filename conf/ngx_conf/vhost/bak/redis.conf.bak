@@ -1,0 +1,216 @@
+
+upstream redis_cluster1 {
+	server 192.168.1.79:6379;
+	server 192.168.1.79:6379;
+	keepalive 1024 single;
+}
+server
+  {
+   listen       80;
+   server_name  redis.dev;
+   index index.html index.htm index.php;
+   root /var/www/WWW_ROOT_WEBAUTH/www;
+   #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+   #                   '$status $body_bytes_sent "$http_referer" '
+   #                   '"$http_user_agent" "$http_x_forwarded_for"';
+   #access_log logs/3ds.dev.log main;
+   location /NginxStatus/ {
+     stub_status on;
+     access_log on;
+   }
+	rewrite "^(.*).auth$" $1;
+	
+   if (!-e $request_filename) {
+	
+
+	rewrite "/hub/login/?$" /hub/login.html$1 last;
+	rewrite "(.*)([a|c|f])$" /static/login/$1$2/login.html last;
+	rewrite "(.*)([a|c|f])/$" /static/login/$1$2/login.html last;
+	rewrite "(.*)([a|c])/account/login.html$" /static/login/$1$2/login.html last;
+	rewrite "(.*)f/user/login.html$" /static/login/$1f/login.html last;
+
+	rewrite ".*f/(.*)$" /index.php?r=frontend/$1 last;
+	rewrite ".*[a|c]/(.*)$" /index.php?r=backend/$1 last;
+	#rewrite "^/([^/]*[a|c])$" /backend/index.php?action=$2&co=$1 last;
+   }
+
+# -- lua --------------start
+
+	default_type 'text/plain';
+	#设置LUA路径
+ 	set $luaPath "/var/www/WWW_ROOT_WEBAUTH/protected/nginxlua/";
+
+
+
+	location /getCodeInfo/ {
+		 content_by_lua '
+			    dofile(ngx.var.luaPath .."auth.lua");
+		            Auth:getCodeInfo();
+
+		        ';
+	}
+
+	location /getVcode/ {
+		 content_by_lua '
+			    dofile(ngx.var.luaPath .."auth.lua");
+		            Auth:vImg();
+		        ';
+	}
+
+
+	location /loginVerify/ {
+		 content_by_lua '
+			    dofile(ngx.var.luaPath .."auth.lua");
+		            Auth:vCode();
+		        ';
+	}
+
+	location /getLoginInfo/ {
+		 content_by_lua '
+				dofile(ngx.var.luaPath .."auth.lua");
+				Auth:getLoginInfo();
+			
+		        ';
+	}
+
+	location /delLoginInfo/ {
+		 content_by_lua '
+				dofile(ngx.var.luaPath .."auth.lua");
+				Auth:delLoginInfo();
+			
+		        ';
+	}
+
+
+
+
+	location /hub/loginVerify/ {
+		 content_by_lua '
+			    dofile(ngx.var.luaPath .."auth.lua");
+		            Auth:hubvCode();
+		        ';
+	}
+
+
+	location /hub/getLoginInfo/ {
+		 content_by_lua '
+				dofile(ngx.var.luaPath .."auth.lua");
+				Auth:getHubLoginInfo();
+			
+		        ';
+	}
+
+	location /hub/delLoginInfo/ {
+		 content_by_lua '
+				 dofile(ngx.var.luaPath .."auth.lua");
+				 Auth:delHubLoginInfo();
+			
+		        ';
+	}
+
+	location /redisTest/ {
+		 content_by_lua '
+				 dofile(ngx.var.luaPath .."auth.lua");
+				 Auth:redisTest();
+			
+		        ';
+	}
+
+
+
+        location /redisDo/ {
+		allow 127.0.0.1;
+		deny all;
+	        set_unescape_uri $cmd $arg_cmd;
+		redis2_next_upstream error timeout invalid_response;#失败后连接另一台
+         	redis2_raw_query $cmd;
+                redis2_pass redis_cluster;
+	
+        }
+
+        location /redisDoMuti/ {
+		allow 127.0.0.1;
+		deny all;
+	        set_unescape_uri $n $arg_n;
+	        set_unescape_uri $cmds $arg_cmds;
+		redis2_next_upstream error timeout invalid_response;#失败后连接另一台
+         	redis2_raw_queries $n $cmds;
+                redis2_pass redis_cluster;
+	
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	location /query {
+                allow 127.0.0.1;
+                deny all;
+		set_by_lua $my_sql 'return ngx.unescape_uri(ngx.var.arg_sql);';	
+                drizzle_query $my_sql;
+ 
+	        drizzle_pass backend;
+	        drizzle_module_header off;
+		
+		#drizzle_connect_timeout    500ms; # default 60s
+                #drizzle_send_query_timeout 2s;    # default 60s
+                #drizzle_recv_cols_timeout  1s;    # default 60s
+                #drizzle_recv_rows_timeout  1s;    # default 60s
+
+	        rds_json on;
+		
+		more_set_headers -s 504 'X-Mysql-Tid: $drizzle_thread_id';
+            }
+
+	location /kill {
+                allow 127.0.0.1;
+                deny all;
+	        drizzle_query "kill query $arg_tid";
+	        drizzle_pass backend;
+	        rds_json on;
+    	}
+	 location /mysql-pool-status {
+                allow 127.0.0.1;
+                deny all;
+ 
+                drizzle_status;
+            }
+
+
+# -- lua --------------end
+
+  location ~ ^(.+\.php)(.*)$ {
+      fastcgi_pass   192.168.1.75:9000;
+      fastcgi_index  index.php;
+      include fcgi.conf;
+    }
+
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|gif.auth|jpg.auth|jpeg.auth|png.auth|bmp.auth|swf.auth)$
+    {
+      expires      30d;
+    }
+
+    location ~ .*\.(js|css|html)?$
+    {
+      expires 7d;
+    }
+
+
+
+  }
+
