@@ -1,0 +1,53 @@
+#! /bin/sh
+set -e
+ 
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/opt/tools/haproxy1.5.19/sbin
+PROGDIR=/opt/tools/haproxy1.5.19
+PROGNAME=haproxy
+DAEMON=$PROGDIR/sbin/$PROGNAME
+CONFIG=$PROGDIR/conf/$PROGNAME.cfg
+PIDFILE=$PROGDIR/run/$PROGNAME.pid
+DESC="HAProxy daemon"
+SCRIPTNAME=/etc/init.d/$PROGNAME
+ 
+# Gracefully exit if the package has been removed.
+test -x $DAEMON || exit 0
+ 
+start()
+{
+        echo -n "Starting $DESC: $PROGNAME"
+        $DAEMON -f $CONFIG
+        echo "."
+}
+ 
+stop()
+{
+        echo -n "Stopping $DESC: $PROGNAME"
+        haproxy_pid=cat $PIDFILE
+        kill $haproxy_pid
+        echo "."
+}
+ 
+restart()
+{
+        echo -n "Restarting $DESC: $PROGNAME"
+        $DAEMON -f $CONFIG -p $PIDFILE -sf $(cat $PIDFILE)
+        echo "."
+}
+ 
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+        restart
+        ;;
+  *)
+        echo "Usage: $SCRIPTNAME {start|stop|restart}" >&2
+        exit 1
+        ;;
+esac
+exit 0

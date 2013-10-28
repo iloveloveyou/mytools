@@ -1,0 +1,2 @@
+#/bin/bash
+mysqladmin -uroot -p951753 -h127.0.0.1 shutdown
