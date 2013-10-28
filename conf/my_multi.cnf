@@ -5,7 +5,9 @@ user = root
 
 
 [mysqld6]
+#skip-grant-tables
 federated
+explicit_defaults_for_timestamp
 #numa-interleave
 #socket = /opt/data/percona/3316/3316.sock
 socket = /tmp/mysql.sock
@@ -25,14 +27,17 @@ interactive_timeout = 28800
 max_connections = 2000
 back_log = 20000
 
-##########innod configure
+#memcached
+#daemon_memcached_enable_binlog=1
+
+
+##########innodb configure
+#innodb_data_file_path = ibdata1:10M:autoextend
 innodb_buffer_pool_instances=2
 innodb_buffer_pool_size=2G
 innodb_log_buffer_size = 1m
 innodb_log_file_size=256M
 innodb_lock_wait_timeout=20
-
-#innodb_data_file_path = ibdata1:10M:autoextend
 
 #innodb io
 innodb_file_per_table = 1
@@ -44,7 +49,7 @@ innodb_flush_method=O_DIRECT
 innodb_max_dirty_pages_pct=50
 #innodb_log_files_in_group=3
 
-innodb_thread_concurrency=6
+#innodb_thread_concurrency=6
 innodb_read_io_threads=12
 innodb_write_io_threads=4
 innodb_rollback_on_timeout=ON
