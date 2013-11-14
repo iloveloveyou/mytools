@@ -1,0 +1,5 @@
+echo 'deadline' > /sys/block/sdb/queue/scheduler
+#减小预读队列,注意是按磁盘设置的 sda,sdb,...
+echo '16' > /sys/block/sda/queue/read_ahead_kb
+#增加写入队列
+echo '512' > /sys/block/sda/queue/nr_requests
