@@ -3,6 +3,24 @@
 socket                          = /tmp/mysql.sock
 default-character-set           = utf8
 
+[mysqldump]
+quick
+quote-names
+max_allowed_packet              = 128M
+
+[mysql]
+no-auto-rehauh
+
+[myisamchk]
+key_buffer_size = 8M
+sort_buffer_size = 8M
+
+[mysqlhotcopy]
+interactive-timeout
+
+[mysql.server]
+user = mysql
+
 [mysqld_multi]
 mysqld = /opt/tools/percona5.6.12rc2/bin/mysqld_safe
 mysqladmin = /opt/tools/percona5.6.12rc2/bin/mysqladmin
@@ -11,10 +29,32 @@ user = mysql
 [mysqld_safe]
 nice                            = -15
 
-
 [mysqld6]
+##Files
+#socket = /opt/data/percona/3316/3316.sock
+#socket                          = /var/lib/mysql/mysql.sock
+socket = /tmp/mysql.sock
+port = 3306
+#pid-file                        = /var/lib/mysql/mysql.pid
+pid-file                         = /opt/data/percona/3316/3316.pid
+##Logging
+datadir                         = /opt/data/percona/3316
+relay_log                       = /db/logs01/mysql-relay-bin
+relay_log_index                 = /db/logs01/mysql-relay-index
+#log                            = /db/logs01/mysql-gen.log
+log_warnings
+log_error                       = /db/logs01/mysql-error.err
+#log_error                      = /opt/data/percona/3316/3316_error.log
+log_bin                         = /db/logs01/mysql-bin
+log_slow_queries                = /var/log/mysql/mysql-slow.log
+#slow-query-log                  = /opt/data/percona/3316/slowquery_3316.log #5.1
+slow_query_log_file             = /opt/data/percona/3316/slowquery_3316.log #5.5+
+## InnoDB Plugin Independent Settings
+innodb_data_home_dir            = /db/data01
+innodb_log_group_home_dir       = /db/logs01
 
-
+#所有mysqld共享区，可以减少修改量
+[mysqld]
 ## Charset and Collation
 character-set-server=utf8
 collation-server=utf8_general_ci
@@ -23,26 +63,10 @@ collation-server=utf8_general_ci
 back_log                        = 3000
 open-files-limit                = 8192
 open-files                      = 1024
-#socket = /opt/data/percona/3316/3316.sock
-#socket                          = /var/lib/mysql/mysql.sock
-socket = /tmp/mysql.sock
-port = 3306
-#pid-file                        = /var/lib/mysql/mysql.pid
-pid-file                         = /opt/data/percona/3316/3316.pid
 skip-external-locking
 skip-name-resolve
 
 ##Logging
-datadir                         = /opt/data/percona/3316
-relay_log                       = /db/logs01/mysql-relay-bin
-relay_log_index                 = /db/logs01/mysql-relay-index
-#log                            = /db/logs01/mysql-gen.log
-log_error                       = /db/logs01/mysql-error.err
-#log_error                      = /opt/data/percona/3316/3316_error.log
-log_warnings
-log_bin                         = /db/logs01/mysql-bin
-log_slow_queries                = /var/log/mysql/mysql-slow.log
-slow-query-log                  = /opt/data/percona/3316/slowquery_3316.log
 #log_queries_not_using_indexes
 long_query_time                 = 2    #default: 10
 max_binlog_size                 = 256M  #max size for binlog before rolling
@@ -76,6 +100,8 @@ max_allowed_packet              = 32M   #max size of incoming data to allow
 sql_mode                        = NO_AUTO_CREATE_USER
 max_prepared_stmt_count = 66382 
 explicit_defaults_for_timestamp = 1 #mysql 5.6+ for 兼容5.5以下未定义 DEFAULT CURRENT_TIMESTAMP 的timestamp列
+table_definition_cache          =2000 #定义表大小
+optimizer_switch                = index_merge=on,index_merge_union=on,index_merge_sort_union=on,index_merge_intersection=on,engine_condition_pushdown=on,index_condition_pushdown=on,mrr=on,mrr_cost_based=on,block_nested_loop=on,batched_key_access=off,materialization=on,semijoin=on,loosescan=on,firstmatch=on,subquery_materialization_cost_based=on,use_index_extensions=on
 
 ## Table and TMP settings
 max_heap_table_size             = 1G    #recommend same size as tmp_table_size
@@ -86,7 +112,7 @@ tmpdir                         = /db/tmp01:/db/tmp02:/db/tmp03 #Recommend using 
 ## Table cache settings
 #table_cache                    = 512   #5.0.x <default: 64>
 #table_cache = 1024
-table_open_cache                = 512   #5.1.x, 5.5.x <default: 64>
+table_open_cache                = 512   #5.1.x, 5.5.x <default: 64>,5.6 默认 为2000
 
 ## Thread settings
 thread_concurrency              = 16  #recommend 2x CPU cores
@@ -100,6 +126,9 @@ myisam_sort_buffer_size         = 128M  #index buffer size for creating/altering
 myisam_max_sort_file_size       = 256M  #max file size for tmp table when creating/alering indexes
 myisam_repair_threads           = 4     #thread quantity when running repairs
 myisam_recover                  = BACKUP        #repair mode, recommend BACKUP
+delay_key_write                 = 1      #为0update记录时，先将数据up到磁盘，但不up索引，将索引存在内存里，当表关闭时，将内存索引，写到磁盘。 值为 0不开启， 1开启。 默认开启
+
+
 
 ## InnoDB Plugin Dependent Settings - 5.1.x ONLY
 #ignore-builtin-innodb
@@ -115,41 +144,67 @@ innodb_io_capacity              =600
 innodb_write_io_threads         = 16
 innodb_read_io_threads          = 16
 
+# Percona or MariaDB
+# thread_pool_idle_timeout  = 60
+# thread_pool_max_threads   = 120
+# thread_pool_oversubscribe = 3
+# thread_pool_size          = 24  #默认为cpu个数 
 ## InnoDB Plugin Independent Settings
-innodb_data_home_dir            = /db/data01
-innodb_log_group_home_dir       = /db/logs01
 #innodb_data_file_path          = ibdata1:10M:autoextend
 innodb_data_file_path           = ibdata1:128M;ibdata2:10M:autoextend
 innodb_log_file_size            = 256M  #64G_RAM+ = 368, 24G_RAM+ = 256, 8G_RAM+ = 128, 2G_RAM+ = 64 
 innodb_log_files_in_group       = 3     #combined size of all logs <4GB. <16G_RAM = 2, >16G_RAM = 3
 innodb_buffer_pool_size         = 48G   #global buffer
-innodb_buffer_pool_instances    = 4     #ver 5.5+ only: splits buffer pool (req: buffer_pool/n > 1G) into n-chunks
+innodb_buffer_pool_instances    = 8     #ver 5.5+ only: splits buffer pool (req: buffer_pool/n > 1G) into n-chunks, 5.6默认为8
 innodb_additional_mem_pool_size = 4M    #global buffer
+innodb_old_blocks_time          = 1000  #1 秒后如果有使用，才放入new blocks，以避免innodb buffer pool 污染。
+innodb_old_blocks_pct           = 70    #控制old sublist在LRU队列的长度,5~95,默认37
 innodb_status_file                      #extra reporting
 innodb_file_per_table           = 1     #enable always
-innodb_open_files               = 1000  #不用设置过大
+innodb_open_files               = 1000  #5.5不用设置过大,5.6默认为2000
 innodb_use_native_aio           =1
 innodb_max_dirty_pages_pct      =50
 innodb_rollback_on_timeout      =ON
 innodb_stats_on_metadata        = OFF
-innodb_purge_threads            = 1
-innodb_purge_batch_size         = 100
-innodb_adaptive_hash_index =      1     #设置为1能提高性能，但是相应的也会消耗内存，需要权衡好
+innodb_purge_threads            = 1     #5.6 default
+innodb_purge_batch_size         = 300   #5.6 300
+innodb_adaptive_hash_index      = 1     #设置为1能提高性能，但是相应的也会消耗内存，需要权衡好
+innodb_adaptive_flushing        = 1     #
 innodb_flush_log_at_trx_commit  = 2     #2/0 = perf, 1 = ACID
 innodb_table_locks              = 0     #preserve table locks
-innodb_log_buffer_size          = 256M  #global buffer
-innodb_lock_wait_timeout        = 60    #20s for ch
-innodb_thread_concurrency       = 16    #recommend 2x core quantity
+innodb_log_buffer_size          = 256M  #global buffer,为512时性能更好
+innodb_lock_wait_timeout        = 60    #20s for CH
+innodb_file_format              = Barracuda
+innodb_file_format_max          = Barracuda
+metadata_locks_hash_instances   = 256  # 5.6 新添加?
+
+#http://www.mysqlperformanceblog.com/2011/12/02/kernel_mutex-problem-cont-or-triple-your-throughput/
+#其测试是8个达到最佳性能,即便thread在1024时性能还是很好。建议低read 活动的场景进行限制，read多的场景，用默认值0.
+innodb_thread_concurrency       = 16    #recommend 2x core quantity,之前的公式是 2x(cpu数 + disk数)
+innodb_sync_spin_loops          = 100   #
+innodb_spin_wait_delay          = 30
+
+
+#At start of each of these methods InnoDB checks count of already entered threads,
+#and if this count is over innodb_thread_concurrency then the thread waits
+#for innodb_thread_sleep_delay microseconds before a next try.
+#innodb_thread_sleep_delay       = 100
+innodb_concurrency_tickets      = 5000   # 5.6 default
 innodb_commit_concurrency       = 16    #recommend 4x num disks
+
 innodb_flush_method            = O_DIRECT         #O_DIRECT, O_DSYNC, blank for fdatasync (default)
 innodb_support_xa               = 1                #recommend 0 on read-only slave, disable xa to negate extra disk flush
 skip-innodb-doublewrite
+innodb_autoextend_increment     = 64     # 5.6推荐加大,有助于降低碎片
 
 
 ## Binlog sync settings
 ## XA transactions = 1, otherwise set to 0 for best performance
 sync_binlog                     = 0
 #sync_binlog                     =10 #待确认
+sync_relay_log                  = 10000 # 5.6默认
+sync_relay_log_info             = 10000 # 5.6默认
+
 
 ## TX Isolation
 transaction-isolation           = REPEATABLE-READ #REPEATABLE-READ req for ACID, SERIALIZABLE req XA
@@ -204,6 +259,7 @@ server-id                       = 1
 ## Replication Semi-Synchronous 5.5.x only, requires dynamic plugin loading ability 
 #rpl_semi_sync_master_enabled   = 1 #enable = 1, disable = 0
 #rpl_semi_sync_master_timeout   = 1000 #in milliseconds <default: 10000>, master only setting
+sync_master_info                = 10000 #5.6 default
 
 ## 5.1.x and 5.5.x replication related setting. 
 binlog_format                   = MIXED
@@ -220,6 +276,7 @@ log_bin_trust_function_creators=1
 #master-password = 123456
 #master-port = 3316
 #master-connect-retry = 5
+secure_auth                    = ON #5.6 default
 
 #在主主同步配置时，需要将两台服务器的auto_increment_increment增长量都配置为2，
 #而要把auto_increment_offset分别配置为1和2.
@@ -227,10 +284,6 @@ log_bin_trust_function_creators=1
 #auto_increment_increment=2 
 #auto_increment_offset=1
 
-[mysqldump]
-quick
-quote-names
-max_allowed_packet              = 128M
 
 
 ## Per-Thread Buffer memory utilization equation:
@@ -238,6 +291,7 @@ max_allowed_packet              = 128M
 
 ## Global Buffer memory utilization equation:
 # innodb_buffer_pool_size + innodb_additional_mem_pool_size + innodb_log_buffer_size + key_buffer_size + query_cache_size
+
 ##Global Setting
 federated
 default-storage-engine=INNODB
@@ -245,3 +299,7 @@ default-storage-engine=INNODB
 #调整进程优先级，避免不使用swap时被kill
 nice                            = -15
 #numa-interleave
+large_pages                     = 1 #启动大页面支持
+
+
+

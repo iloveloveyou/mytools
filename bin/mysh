@@ -1,0 +1,56 @@
+#!/bin/bash  
+#:-------------CopyRight-------------   
+#:Name:lustlost - 1.0  
+#:Date:2012-7-17  
+#:Author:lustlost  
+#:Email:lustlost@foxmail.com 
+
+if [ -e $1 ]; then  
+    read -p "file exists!!! input "e" to edit it, "d" to delete it and create a new file, "q" to quiet this operat: " OPERAT
+    [ "$OPERAT" == q ] && exit
+    [ "$OPERAT" == e ] && vim $1
+    [ "$OPERAT" == r ] && rm -rf $1
+else  
+        read -p "Customize the copyright information ? input y/n: " SELECT  
+            if [ "$SELECT" == y -o "$SELECT" == Y ]; then  
+                read -p "Version Number:" VER  
+                read -p "Author:" AUTHOR  
+                read -p "Email address:" EMAIL 
+     
+cat > $1 << EOF  
+    #!/bin/bash  
+    #:-------------CopyRight-------------   
+    #:Name:`basename $1` - $VER  
+    #:Date:`date '+%Y-%M-%d'`  
+    #:Author:$AUTHOR  
+    #:Email:$EMAIL 
+     
+EOF 
+     
+                vim +8 $1  
+            else  
+cat > $1 < EOF  
+    #!/bin/bash  
+    #:-------------CopyRight-------------   
+    #:Name:`basename $1` - 1.0  
+    #:Date:`date '+%Y-%M-%d'`  
+    #:Author:Your Name  
+    #:Email:Your Email Address 
+     
+EOF  
+                vim +8 $1  
+            fi  
+    fi 
+     
+    until bash -n $1 &> /dev/null; do  
+            read -p "Syntax error!! input Q/q to exit,other to edit it: " COM  
+            if [ $COM == Q -o $COM == q ]; then  
+                exit  
+            else  
+                vim $1  
+            fi  
+    done 
+    chmod +x $1
+    echo "sh is create and it is right!!!" 
+
+
