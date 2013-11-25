@@ -1,0 +1,98 @@
+#!/usr/bin/perl
+#
+#	Interrupt top
+#
+#	Show the interrupts per second/per IRQ per CPU
+
+# Parse /proc/interrupts file for data
+#
+#            CPU0       CPU1       
+#   0: 3025267376 3026744388    IO-APIC-edge  timer
+#   1:     833854     843315    IO-APIC-edge  i8042
+#   6:         15         63    IO-APIC-edge  floppy
+#   7:          0          0    IO-APIC-edge  parport0
+#   8:     532620     522911    IO-APIC-edge  rtc
+#   9:          1          0   IO-APIC-level  acpi
+#  12:    9812189    9981980    IO-APIC-edge  i8042
+#  14:   27181914   27208373    IO-APIC-edge  ide0
+#  58:  249517917          0   IO-APIC-level  eth0
+#  66:    1090230    1089904   IO-APIC-level  ehci_hcd:usb1, uhci_hcd:usb2
+# 169:      82497      85243   IO-APIC-level  HDA Intel, uhci_hcd:usb5, i915@pci:0000:00:02.0
+# 217:          0          0   IO-APIC-level  uhci_hcd:usb4
+# 233:    2809674    2795397   IO-APIC-level  libata, uhci_hcd:usb3
+# NMI:          0          0 
+# LOC: 1754237653 1754237661 
+# ERR:          0
+# MIS:          0
+
+use IO::File;
+use Term::Cap;
+
+$term = Tgetent Term::Cap;
+print $term->Tputs('cl');
+
+$fh = new IO::File;
+
+if (!$fh->open("</proc/interrupts")) {
+	die "Unable to open /proc/interrupts";
+}
+
+$top = $fh->getpos();
+$first_time = 0;
+while (1) {
+	$fh->setpos($top);
+
+	# Read and parse interrupts
+	$header = <$fh>; # Header line
+	# Count CPUs
+	$cpus = () = $header =~ /CPU/g;
+
+	my %irqs;
+	while (<$fh>) {
+		#if (/^\s*(\d+):(\s*(\d+)\s*)*(\S+)\s*(.*)$/) {
+		if (/^\s*(\d+):\s*(\d+)\s+(\S+)\s+(.*)$/) {
+			# Found a IRQ line, Build an assoc array of CPU values
+			#print $1 . ":" . $2 .":". $3 .":". $4 .":". $5 .":". $6 . ":" . $7 .":". $8 .":". $9 . "\n";
+			$irq = $1;
+			for ($cpu = 0; $cpu < $cpus; $cpu++) {
+				$exp = '$icount = $' . ($cpu + 2);
+				eval $exp;
+				$irqs{$irq}[$cpu] = $icount
+			}
+			eval '$desc = $' . ($cpus + 2);
+			$desc =~ /(\S+)\s+(.*)$/;
+			$irq_type{$irq} = $1;
+			$irq_device{$irq} = $2;
+			#eval '$irq_type{$irq} = $' . ($cpus + 2);
+			#print $irq_type{$irq} . "\n";
+			#eval '$irq_device{$irq} = $' . ($cpus + 3);
+
+		}
+	}
+
+	if ($first_time != 0) {
+		# Prepare sceeen
+		print $term->Tputs('ho');
+		# Output header
+		printf("%28s%" . ($cpus + 1) * 16 . "s", "", "IRQs/Second\n");
+		printf('%20s (%3s)  ', "Device", "IRQ");
+		foreach ($cpu = 0; $cpu < $cpus; $cpu++) {
+			printf('%15s ', 'CPU' . $cpu);
+		}
+		printf("%15s\n", "TOTAL");
+		foreach $irq (keys %irqs) {
+			printf('%20s (%3d): ', substr($irq_device{$irq}, 0, 20), $irq);
+			$total = 0;
+			for ($cpu = 0; $cpu < 2; $cpu ++) {
+				printf("%15s ", $irqs{$irq}[$cpu] - $last{$irq}[$cpu]);
+				$total += $irqs{$irq}[$cpu] - $last{$irq}[$cpu];
+			}
+			printf("%15s\n", $total);
+		}
+	}
+	$first_time = 1;
+	
+
+	%last = %irqs;
+	sleep 1;
+}
