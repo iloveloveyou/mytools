@@ -72,28 +72,29 @@ while (1) {
 		# Prepare sceeen
 		print $term->Tputs('ho');
 		# Output header
-		if ($DISPALLCPU > 0) {
-			printf("%28s%" . ($cpus + 1) * 16 . "s", "", "IRQs/Second\n");
-		} else {
-			printf("%28s%" . 1 * 16 . "s", "", "IRQs/Second\n");
-		}
+		#if ($DISPALLCPU > 0) {
+		#	printf("%28s%" . ($cpus + 1) * 16 . "s", "", "IRQs/Second\n");
+		#} else {
+		#	printf("%28s%" . 1 * 16 . "s", "", "IRQs/Second\n");
+		#}
+
 		printf('%20s (%3s)  ', "Device", "IRQ");
 		if ($DISPALLCPU > 0) {
 			foreach ($cpu = 0; $cpu < $cpus; $cpu++) {
-				printf('%7s ', 'CPU' . $cpu);
+				printf('%5s ', '#' . $cpu);
 			}
 		}
-		printf("%15s\n", "TOTAL");
+		printf("%8s\n", "TOTAL");
 		foreach $irq (sort mycriteria keys %irqs) {
 			printf('%20s (%3s): ', substr($irq_device{$irq}, 0, 20), $irq);
 			$total = 0;
 			for ($cpu = 0; $cpu < $cpus; $cpu ++) {
 				if ($DISPALLCPU > 0) {
-					printf("%7s ", $irqs{$irq}[$cpu] - $last{$irq}[$cpu]);
+					printf("%5s ", $irqs{$irq}[$cpu] - $last{$irq}[$cpu]);
 				}
 				$total += $irqs{$irq}[$cpu] - $last{$irq}[$cpu];
 			}
-			printf("%15s\n", $total);
+			printf("%8s\n", $total);
 		}
 	}
 	$first_time = 1;
