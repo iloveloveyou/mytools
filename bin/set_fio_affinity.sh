@@ -1,4 +1,5 @@
 #!/bin/bash
+#PCI-E SSD卡中断配置问题
 
 set_affinity()
 {
