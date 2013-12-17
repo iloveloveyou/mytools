@@ -153,6 +153,7 @@ innodb_read_io_threads          = 16
 #innodb_data_file_path          = ibdata1:10M:autoextend
 innodb_data_file_path           = ibdata1:128M;ibdata2:10M:autoextend
 innodb_log_file_size            = 256M  #64G_RAM+ = 368, 24G_RAM+ = 256, 8G_RAM+ = 128, 2G_RAM+ = 64 
+innodb_log_buffer_size          = 256M  #global buffer,为512时性能更好
 innodb_log_files_in_group       = 3     #combined size of all logs <4GB. <16G_RAM = 2, >16G_RAM = 3
 innodb_buffer_pool_size         = 48G   #global buffer
 innodb_buffer_pool_instances    = 8     #ver 5.5+ only: splits buffer pool (req: buffer_pool/n > 1G) into n-chunks, 5.6默认为8
@@ -172,7 +173,6 @@ innodb_adaptive_hash_index      = 1     #设置为1能提高性能，但是相�
 innodb_adaptive_flushing        = 1     #
 innodb_flush_log_at_trx_commit  = 2     #2/0 = perf, 1 = ACID
 innodb_table_locks              = 0     #preserve table locks
-innodb_log_buffer_size          = 256M  #global buffer,为512时性能更好
 innodb_lock_wait_timeout        = 60    #20s for CH
 innodb_file_format              = Barracuda
 innodb_file_format_max          = Barracuda
