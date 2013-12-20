@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
 my $ib1=$ARGV[0];
-$mysql_start="/opt/tools/percona5.6.12/bin/mysqld_multi --defaults-file=/etc/my_multi.cnf start $ib1 --log=/var/log/mysqld.log";
+$mysql_start="/usr/local/mysql/bin/mysqld_multi --defaults-file=/etc/my_multi.cnf --defaults-extra-file=/etc/my_multi.cnf start $ib1 --log=/var/log/mysqld.log";
+#print "$mysql_start\n";
 `$mysql_start`;

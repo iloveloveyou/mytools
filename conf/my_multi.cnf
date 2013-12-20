@@ -1,3 +1,5 @@
+#磁盘调试策略
+#/sys/block/sd*/queue/scheduler
 [client]
 #socket                          = /var/lib/mysql/mysql.sock
 socket                          = /tmp/mysql.sock
@@ -144,11 +146,6 @@ innodb_io_capacity              =600
 innodb_write_io_threads         = 16
 innodb_read_io_threads          = 16
 
-# Percona or MariaDB
-# thread_pool_idle_timeout  = 60
-# thread_pool_max_threads   = 120
-# thread_pool_oversubscribe = 3
-# thread_pool_size          = 24  #默认为cpu个数 
 ## InnoDB Plugin Independent Settings
 #innodb_data_file_path          = ibdata1:10M:autoextend
 innodb_data_file_path           = ibdata1:128M;ibdata2:10M:autoextend
@@ -167,8 +164,6 @@ innodb_use_native_aio           =1
 innodb_max_dirty_pages_pct      =50
 innodb_rollback_on_timeout      =ON
 innodb_stats_on_metadata        = OFF
-innodb_purge_threads            = 1     #5.6 default
-innodb_purge_batch_size         = 300   #5.6 300
 innodb_adaptive_hash_index      = 1     #设置为1能提高性能，但是相应的也会消耗内存，需要权衡好
 innodb_adaptive_flushing        = 1     #
 innodb_flush_log_at_trx_commit  = 2     #2/0 = perf, 1 = ACID
@@ -177,6 +172,7 @@ innodb_lock_wait_timeout        = 60    #20s for CH
 innodb_file_format              = Barracuda
 innodb_file_format_max          = Barracuda
 metadata_locks_hash_instances   = 256  # 5.6 新添加?
+
 
 #http://www.mysqlperformanceblog.com/2011/12/02/kernel_mutex-problem-cont-or-triple-your-throughput/
 #其测试是8个达到最佳性能,即便thread在1024时性能还是很好。建议低read 活动的场景进行限制，read多的场景，用默认值0.
@@ -197,6 +193,15 @@ innodb_support_xa               = 1                #recommend 0 on read-only sla
 skip-innodb-doublewrite
 innodb_autoextend_increment     = 64     # 5.6推荐加大,有助于降低碎片
 
+# Percona or MariaDB
+innodb_purge_threads            = 1     #5.6 default
+innodb_purge_batch_size         = 300   #5.6 300
+innodb_extra_rsegments          = 16    #多回滚段
+# thread_pool_idle_timeout  = 60
+# thread_pool_max_threads   = 120
+# thread_pool_oversubscribe = 3
+# thread_pool_size          = 24  #默认为cpu个数 
+# innodb_flush_neighbor_pages = 0 #建议不刷新 
 
 ## Binlog sync settings
 ## XA transactions = 1, otherwise set to 0 for best performance
