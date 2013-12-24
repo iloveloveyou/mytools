@@ -2,7 +2,7 @@
  
 # Program Path
 NUMACTL=`which numactl`
-MYSQLD=/usr/alibaba/mysql/libexec/mysqld
+MYSQLD=/usr/local/mysql/bin/mysqld
 PS=`which ps`
 GREP=`which grep`
 CUT=`which cut`
