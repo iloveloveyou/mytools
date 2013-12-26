@@ -125,8 +125,7 @@ thread_cache_size               = 100 #recommend 5% of max_connections
 
 
 ## MyISAM Engine
-key_buffer                      = 1M    #global buffer
-key_buffer_size                 = 12M   #与上一配置是否重复?
+key_buffer_size                 = 12M   #global buffer
 myisam_sort_buffer_size         = 128M  #index buffer size for creating/altering indexes
 myisam_max_sort_file_size       = 256M  #max file size for tmp table when creating/alering indexes
 myisam_repair_threads           = 4     #thread quantity when running repairs
@@ -146,8 +145,8 @@ innodb_io_capacity              =600
 #innodb_file_io_threads         = 16
 
 ## InnoDB IO settings -  5.5.x and greater
-innodb_write_io_threads         = 16
-innodb_read_io_threads          = 16
+innodb_write_io_threads         = 4
+innodb_read_io_threads          = 4
 
 ## InnoDB Plugin Independent Settings
 #innodb_data_file_path          = ibdata1:10M:autoextend
@@ -157,7 +156,7 @@ innodb_log_buffer_size          = 256M  #global buffer,为512时性能更好
 innodb_log_files_in_group       = 3     #combined size of all logs <4GB. <16G_RAM = 2, >16G_RAM = 3
 innodb_buffer_pool_size         = 48G   #global buffer
 innodb_buffer_pool_instances    = 8     #ver 5.5+ only: splits buffer pool (req: buffer_pool/n > 1G) into n-chunks, 5.6默认为8
-innodb_additional_mem_pool_size = 4M    #global buffer
+innodb_additional_mem_pool_size = 8M    #global buffer
 innodb_old_blocks_time          = 1000  #1 秒后如果有使用，才放入new blocks，以避免innodb buffer pool 污染。
 innodb_old_blocks_pct           = 70    #控制old sublist在LRU队列的长度,5~95,默认37
 innodb_status_file                      #extra reporting
@@ -194,7 +193,7 @@ innodb_commit_concurrency       = 16    #recommend 4x num disks
 innodb_flush_method            = O_DIRECT         #O_DIRECT, O_DSYNC, blank for fdatasync (default)
 innodb_support_xa               = 1                #recommend 0 on read-only slave, disable xa to negate extra disk flush
 skip-innodb-doublewrite
-innodb_autoextend_increment     = 64     # 5.6推荐加大,有助于降低碎片
+innodb_autoextend_increment     = 64     # 5.6推荐加大,有助于降低碎片,当自动扩展表空间被填满之时，每次扩展空间的大小，默认值是8(单位MB)
 
 # Percona or MariaDB
 innodb_purge_threads            = 1     #5.6 default
@@ -208,8 +207,7 @@ innodb_extra_rsegments          = 16    #多回滚段
 
 ## Binlog sync settings
 ## XA transactions = 1, otherwise set to 0 for best performance
-sync_binlog                     = 0
-#sync_binlog                     =10 #待确认
+sync_binlog                     =1000 #当每进行n次事务提交之后，MySQL将进行一次fsync之类的磁盘同步指令来将binlog_cache中的数据强制写入磁盘。
 sync_relay_log                  = 10000 # 5.6默认
 sync_relay_log_info             = 10000 # 5.6默认
 
