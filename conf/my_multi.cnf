@@ -26,7 +26,9 @@ user = mysql
 [mysqld_multi]
 mysqld = /opt/tools/percona5.6.12rc2/bin/mysqld_safe
 mysqladmin = /opt/tools/percona5.6.12rc2/bin/mysqladmin
-user = mysql
+user = root
+password = 123456
+log=/var/log/mysql.log
 
 [mysqld_safe]
 nice                            = -15
@@ -81,6 +83,7 @@ read_buffer_size                = 2M      #default: 128K, change in increments o
 read_rnd_buffer_size            = 2M      #default: 256K
 join_buffer_size                = 2M      #default: 128K
 binlog_cache_size               = 128K    #default: 32K, size of buffer to hold TX queries
+net_buffer_size                 = 128K    #default 16K
 wait_timeout                    = 28800
 interactive_timeout             = 28800
 
