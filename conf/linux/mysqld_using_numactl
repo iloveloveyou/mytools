@@ -9,15 +9,16 @@ CUT=`which cut`
 WC=`which wc`
 EXPR=`which expr`
  
-# Variables
+DBPORT=(`echo "$@"|$GREP -o '\-\-port=[0-9]\{1,\}'|$GREP -o '[0-9]\{1,\}'`)
+## Variables
 CPU_BIND=(`$NUMACTL --show | $GREP nodebind | $CUT -d: -f2 `)   # CPU bins list
 CPU_BIND_NUM=${#CPU_BIND[@]}    # How many CPU binds
-MYSQLD_NUM=`$PS aux | $GREP mysqld | $GREP -v grep | $GREP '\<mysqld\>' | $WC -l`
-MYSQLD_NUM=`$EXPR $MYSQLD_NUM + 1`
+#MYSQLD_NUM=`$PS aux | $GREP mysqld | $GREP -v grep | $GREP '\<mysqld\>' | $WC -l`
+MYSQLD_NUM=`$EXPR $DBPORT + 1`
 BIND_NO=`$EXPR $MYSQLD_NUM % $CPU_BIND_NUM ` # Calc Which CPU to Bind
+### echo CMD
+CMD="$NUMACTL --cpunodebind=$BIND_NO --localalloc $MYSQLD $@" 
+echo $CMD > /tmp/mysqld.$DBPORT
  
-# echo CMD
-echo "$NUMACTL --cpunodebind=$BIND_NO --localalloc $MYSQLD" > /tmp/mysqld.$MYSQLD_NUM
- 
-# use exec to avoid having an extra shell around.
-exec $NUMACTL --cpubind=$BIND_NO --localalloc $MYSQLD "$@"
+### use exec to avoid having an extra shell around.
+exec $CMD

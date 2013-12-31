@@ -306,6 +306,7 @@ default-storage-engine=INNODB
 nice                            = -15
 #numa-interleave
 large_pages                     = 1 #启动大页面支持
+memlock
 
 
 

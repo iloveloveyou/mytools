@@ -21,13 +21,15 @@ DBPASS='123456'
 #DBPORT='3301'
 #测试模式：10个仓库
 WIREHOUSE=10
+DBCODE=1
+DBCODE2=`echo $DBCODE|sed 's/ \+/,/g'`
 DBNAME="tpcc${WIREHOUSE}"
 #数据预热时间：120秒
 WARMUP=120
 #执行测试时长：1小时
-DURING=3600
+DURING=1000
 #测试模式
-MODE="MySQL55_innodb_buf9G_8bp_1000dw_ext3_deadline_3disk_raid0"
+MODE="MySQL55_innodb_buf9G_8bp_1000dw_ext4_deadline_3disk_raid0"
 
 
 #初始化测试环境
@@ -44,11 +46,11 @@ do
 
 	#测试并发线程：8 ~ 256
 	#for THREADS in 8 16 32 64 128 256 
-	$EXEC_P "$STARTER start 1,2";echo "startdb and wait 15s";sleep 15;
+	$EXEC_P "$STARTER start $DBCODE2";echo "startdb and wait 15s";sleep 15;
 	for THREADS in 24
 	do
 		#init 1
-		for  DB in 1 2 
+		for  DB in $DBCODE 
 		do
 			DBPORT="330${DB}"
 			CONNARG="-h$DBIP -u$DBUSER -p$DBPASS -P$DBPORT "
@@ -61,17 +63,17 @@ do
 
 		#clean & free
 		echo "stop MySQL"
-		$EXEC_P "$STARTER stop 1,2";
+		$EXEC_P "$STARTER stop $DBCODE2";
 		sleep 35
 
 		$EXEC_P "echo '3' > /proc/sys/vm/drop_caches"
 
 		echo "start MySQL $DBPORT ..."
-		$EXEC_P "$STARTER start 1,2"
+		$EXEC_P "$STARTER start $DBCODE2"
 		sleep 20
 
 		#load	
-		for DB in 1 2 
+		for DB in $DBCODE 
 		do
 			DBPORT="330${DB}"
 			CONNARG="-h$DBIP -u$DBUSER -p$DBPASS -P$DBPORT "
@@ -81,7 +83,7 @@ do
 		done
 		#开始执行tpcc测试
 		#tpcc_start -h server_host -P port -d database_name -u mysql_user -p mysql_password -w warehouses -c connections -r warmup_time -l running_time -i report_interval -f report_file -t trx_file
-		for  DB in 1 2 
+		for  DB in  $DBCODE
 		do
 			DBPORT="330${DB}"
 			CONNARG="-h$DBIP -u$DBUSER -p$DBPASS -P$DBPORT "
