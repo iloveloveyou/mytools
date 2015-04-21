@@ -2,37 +2,35 @@ alias ll='ls -al'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-#source /opt/tools/shell-completion/bash/rebar
 #export FLEX_HOME="/Applications/Adobe Flash Builder 4.7/sdks/4.6.0"
 export FLEX="/opt/htdocs_flash/SDK"
 export FLASCC="/opt/htdocs_flash/flash_cc/sdk"
 export RBENV_ROOT=/usr/local/var/rbenv
-export OTOOLS="/opt/tools"
-#export DB_BIN="/usr/local/Cellar/percona-server/5.5.30-30.1/bin"
+export TOOLS="/opt/tools"
 export DB_BIN="/opt/tools/percona5.6.12/bin"
 export LUA_BIN="/opt/tools/luajit/bin"
 #export DYLD_LIBRARY_PATH=/opt/tools/percona5.6.12/lib:$DYLD_LIBRARY_PATH
 
 #go
-export GOROOT=/usr/local/Cellar/go/1.1.1
+export GOROOT=/opt/tools/go
 export GOPATH=/opt/program/go
 export GOOS=darwin
 export GOARCH=amd64
+export BREW=/usr/brew
+#JAVA
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home
+MAVEN_HOME=/usr/brew/Cellar/maven/3.2.5
+export JAVA_HOME
+export MAVEN_HOME
 
-export PATH=$DB_BIN:$LUA_BIN:~/bin:$OTOOLS/mytools/bin:$GOPATH/bin:/opt/tools/pypy-2.0.2/bin:$OTOOLS/luajit/bin:$OTOOLS/erlangR16/lib/erlang/bin:/usr/local/bin:/usr/local/sbin:$FLEX/bin:$PATH
+export PATH=$BREW/bin:$BREW/sbin:$DB_BIN:$LUA_BIN:$TOOLS/zjl/bin:$GOPATH/bin:/opt/tools/pypy-2.0.2/bin:$OTOOLS/luajit/bin:$OTOOLS/erlangR16/lib/erlang/bin:/usr/local/bin:/usr/local/sbin:$FLEX/bin:$PATH:$MAVEN_HOME/bin
 #AsciiDoc
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
-export NODE_PATH=/usr/local/lib/node_modules
 export SANDBOX_HOME=/opt/sandbox
 export SANDBOX_AS_ROOT=1
 
-#perl
-#export PERL5LIB=/Library/Perl/5.12
-#export PERL_LOCAL_LIB_ROOT="$PERL5LIB:/usr/local/perl5";
-#export PERL_MM_OPT="INSTALL_BASE=/usr/local";
-#export PATH="/Users/zhangjl/perl5/bin:$PATH";
-
-
 export http_proxy=http://127.0.0.1:8087
+export https_proxy=https://127.0.0.1:8087
 export ALL_PROXY=$http_proxy
+

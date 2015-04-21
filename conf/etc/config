@@ -1,0 +1,13 @@
+#可以使多个ssh会话共享一个已经存在的连接，如果没有，则自动创建一个连接
+ControlMaster auto
+#ControlPath /tmp/%r@%h:%p
+#可以指定想要共享的连接。
+#%r代表远程登录用户名，一般都为git，
+#%h表示目标主机，
+#%p表示端口
+ControlPath /tmp/zhangjunlei26@github.com:22
+#ControlPath /tmp/zhangjunlei26@git.oschina.net:22
+#ControlPath /tmp/git@gitcafe.com:22
+
+#可以让共享的连接持有处于连接状态
+ControlPersist yes

@@ -1,0 +1,2 @@
+#!/bin/sh
+ps aux|grep nginx|awk '{print $2}'|xargs -t -I{} kill -9 {}

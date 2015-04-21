@@ -1,0 +1,7 @@
+#!/bin/bash
+# 取得网卡eth0上的所有操作
+time tcpdump -i eth0 -s 1500 -w 20060427-db-traffic-01.dmp 
+# 这个可以指定特定IP请求的操作，可用于追踪
+#time tcpdump -i eth0 -s 1500 src host 192.168.2.10 -w 20060427-db-traffic-01.dmp 
+# 这个是格式化输出你要结果
+#strings 20060427-db-traffic-01.dmp | grep -i 'select' | awk '{printf("%s %s %s %s\n", $1,$2,$3, $4);}'| sort| uniq -c | awk '{printf("%06ld %s %s %s %s\n", $1,$2,$3,$4,$5);}'|sort

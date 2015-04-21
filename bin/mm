@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/local/mysql-5.5.24/bin/mysqld_safe --user=zhangjl &

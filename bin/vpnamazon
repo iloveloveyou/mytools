@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -qTfnN -D 7070 root@54.248.72.173

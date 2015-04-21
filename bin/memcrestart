@@ -1,0 +1,3 @@
+killall -9 memcached 
+memc1 
+memc2

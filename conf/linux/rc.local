@@ -1,5 +1,47 @@
-echo 'deadline' > /sys/block/sdb/queue/scheduler
-#减小预读队列,注意是按磁盘设置的 sda,sdb,...
-echo '16' > /sys/block/sda/queue/read_ahead_kb
-#增加写入队列
-echo '512' > /sys/block/sda/queue/nr_requests
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+touch /var/lock/subsys/local
+#/bin/start_mysql 1,2
+#/usr/local/redis/src/redis-server /usr/local/redis/conf/redis_6370.conf
+#/usr/local/redis/src/redis-server /usr/local/redis/conf/redis_6371.conf
+#/usr/local/redis/src/redis-server /usr/local/redis/conf/redis_6373.conf
+#/usr/local/redis/src/redis-server /usr/local/redis/conf/redis_6374.conf
+
+#echo 'deadline'>/sys/block/sda/queue/scheduler
+echo '16'> /sys/block/sda/queue/read_ahead_kb
+echo '512'>/sys/block/sda/queue/nr_requests
+
+#echo 'deadline'>/sys/block/sdb/queue/scheduler
+echo '16'> /sys/block/sdb/queue/read_ahead_kb
+echo '512'>/sys/block/sdb/queue/nr_requests
+
+
+ethtool -K em1 gro off
+service irqbalance stop
+chkconfig irqbalance off
+cat /proc/irq/{106,107,108,109,110}/smp_affinity
+echo 1 > /proc/irq/106/smp_affinity
+echo 4 > /proc/irq/107/smp_affinity
+echo 10 > /proc/irq/108/smp_affinity
+echo 40 > /proc/irq/109/smp_affinity
+echo 100 > /proc/irq/110/smp_affinity
+
+# Enable RPS (Receive Packet Steering)
+rfc=4096
+cc=$(grep -c processor /proc/cpuinfo)
+rsfe=$(echo $cc*$rfc | bc)
+sysctl -w net.core.rps_sock_flow_entries=$rsfe
+for fileRps in $(ls /sys/class/net/em*/queues/rx-*/rps_cpus)
+do
+echo fff > $fileRps
+done
+for fileRfc in $(ls /sys/class/net/em*/queues/rx-*/rps_flow_cnt)
+do
+echo $rfc > $fileRfc
+done
+tail /sys/class/net/em*/queues/rx-*/{rps_cpus,rps_flow_cnt}
+

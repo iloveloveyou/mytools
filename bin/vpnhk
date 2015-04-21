@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -qTfnN -D 7070 root@113.10.211.106
