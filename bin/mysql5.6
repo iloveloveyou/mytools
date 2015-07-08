@@ -44,7 +44,7 @@
 # overwritten by settings in the MySQL configuration files.
 
 basedir=/opt/tools/mysql
-datadir=/opt/data/percona/3306
+datadir=/opt/data/mysql/3306
 
 # Default value, in seconds, afterwhich the script should timeout waiting
 # for server start. 
@@ -102,7 +102,7 @@ else
   }
 fi
 
-PATH="/sbin:/usr/sbin:/bin:/usr/bin:$basedir/bin:/usr/local/bin"
+PATH="$basedir/bin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin"
 export PATH
 
 mode=$1    # start or stop

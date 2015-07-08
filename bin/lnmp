@@ -1,29 +1,74 @@
 #!/bin/bash
-# Run this script to enable the Ramdisk for Firefox profiles
-VolumeName="zjl"
- 
-# Size in MB, make sure is not too low or not too high
-SizeInMB=50
- 
-NumSectors=$((2*1024*SizeInMB))
- 
-DeviceName=`hdid -nomount ram://$NumSectors`
- 
-echo $DeviceName
- 
-diskutil eraseVolume HFS+ shm $DeviceName
-
- 
-ln -s /Volumes/shm /dev/shm
-# move the current profiles folder
-#mv Profiles Profiles_ &&
- 
-# make a symlink to the ramdisk
-#ln -s /Volumes/RAMDisk ./Profiles &&
- 
-# then copy it to the ramdisk
-#/bin/cp -r Profiles_/* Profiles
+PHP_DIR=/opt/tools/php/
+NGX_DIR=/opt/tools/nginx/
+NGX_BIN=${NGX_DIR}sbin/nginx
+PHP_FPM=${PHP_DIR}sbin/php-fpm
+PHP_PID=`cat ${PHP_DIR}var/run/php-fpm.pid`
+MYSQL_SHELL=/opt/tools/zjl/bin/mysql5.6
 
 
-mkdir /dev/shm/sessions
-chmod 0777 /dev/shm/sessions
+# hdiutil mount facter-1.7.2.dmg
+# installer -package /Volumes/facter-1.7.2/facter-1.7.2.pkg/ -target /Volumes/Macintosh\ HD
+# hdutil unmount /Volumes/facter-1.7.2
+
+#判断一个命令是否存在(command,type,hash)，不要用which，有些系统没有which
+#command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }  
+
+function startShm(){
+	if [ ! -d "/Volumes/shm" ]; then
+		# Run this script to enable the Ramdisk for Firefox profiles
+		VolumeName="zjl" 
+		# Size in MB, make sure is not too low or not too high
+		SizeInMB=50
+		NumSectors=$((2*1024*SizeInMB))
+		DeviceName=`hdid -nomount ram://$NumSectors`
+		echo $DeviceName
+		diskutil eraseVolume HFS+ shm $DeviceName
+		ln -s /Volumes/shm /dev/shm
+		mkdir -p /Volumes/shm/sessions
+		chmod -R 0777 /Volumes/shm
+	fi
+}
+function stopShm()
+{
+	hdiutil unmount /Volumes/shm
+}
+
+function start(){
+	startShm
+	$PHP_FPM
+	$MYSQL_SHELL start
+	sudo $NGX_BIN
+}
+function stop(){
+	hdiutil unmount /Volumes/shm
+	kill -INT $PHP_PID
+	$MYSQL_SHELL stop
+	sudo $NGX_BIN -s quit
+	#sudo ps aux|grep nginx|grep -v grep|awk '{print $2}'|xargs -t -I{} kill -9 {}
+}
+
+function reload(){
+	kill -USR2 $PHP_PID
+	sudo $NGX_BIN -s reload
+	sleep 1
+}
+case $1 in
+	"stop")
+		stop
+	;;
+	"reload")
+		reload
+	;;
+	*)
+		start
+	;;
+esac
+echo "PHP 进程:"
+ps aux|grep php-fpm
+echo "Nginx 进程:"
+ps aux|grep nginx
+
+
+
+

@@ -1,0 +1,6 @@
+set ignorecase
+set wrapscan
+set guioptions=r
+set number
+set hlsearch
+nmap n e

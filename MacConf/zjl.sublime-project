@@ -1,0 +1,77 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Volumes/n1/src/nim/Nim-devel"
+		},
+		{
+			"path": "/Volumes/n1/src/nim/csources-devel"
+		},
+		{
+			"path": "/opt/tools/go/src"
+		},
+		{
+			"path": "/opt/books/zjl_blog"
+		},
+		{
+			"path": "/opt/books/zjl_docs"
+		},
+		{
+			"path": "/Users/zhangjl/Downloads/pelican"
+		},
+		{
+			"path": "/Volumes/n1/src/browser/servo"
+		},
+		{
+			"path": "/opt/tools/zjl/conf/ngx_conf"
+		},
+		{
+			"path": "/opt/tools/zjl"
+		},
+		{
+			"path": "/Users/zhangjl/.composer"
+		},
+		{
+			"path": "/opt/tools/php5.6.8/etc"
+		},
+		{
+			"path": "/opt/csrc"
+		},
+		{
+			"path": "/Volumes/n1/src/nim/Nim.git"
+		},
+		{
+			"path": "/Volumes/n1/src/c++/ULib-master"
+		},
+		{
+			"path": "/Volumes/n1/opensrc/webserver/monkey-1.5.5/monkey-1.5.5"
+		},
+		{
+			"path": "/opt/vmvare/php7dev.git"
+		},
+		{
+			"path": "/opt/htdocs_c/nginx-1.9.1"
+		},
+		{
+			"path": "/opt/tools/lib/k-vim"
+		},
+		{
+			"path": "/opt/tools"
+		},
+		{
+			"path": "/opt/htdocs_c/rust"
+		},
+		{
+			"path": "/Users/zhangjl/Library/Application Support/Sublime Text 3"
+		},
+		{
+			"path": "/opt/src/Libc-1044.1.2"
+		},
+		{
+			"path": "/Volumes/n1/opensrc/scheme/complier2/scheme-compiler"
+		},
+		{
+			"path": "/usr/local/etc/php/7.0"
+		}
+	]
+}
