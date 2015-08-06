@@ -1,0 +1,1957 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"print",
+				"println!	println! …"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/opt/htdocs/zybl/index.html",
+			"settings":
+			{
+				"buffer_size": 36091,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/www.zybuluo.com/index.html",
+			"settings":
+			{
+				"buffer_size": 35642,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/static/assets/ac6caddd.base.lib.min.js",
+			"settings":
+			{
+				"buffer_size": 246611,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/static/assets/e5248927.base.lib.min.css",
+			"settings":
+			{
+				"buffer_size": 147888,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/static/editor/libs/uml/sequence-diagram-min-1.0.4.js",
+			"settings":
+			{
+				"buffer_size": 87580,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/settings/account",
+			"settings":
+			{
+				"buffer_size": 6734,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/ghosert/note/102771",
+			"settings":
+			{
+				"buffer_size": 25521,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/ghosert/note/11231",
+			"settings":
+			{
+				"buffer_size": 29452,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/ghosert/note/2",
+			"settings":
+			{
+				"buffer_size": 48934,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/cmd/js/blocs.js",
+			"settings":
+			{
+				"buffer_size": 2255,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/cmd/js/bootstrap.js",
+			"settings":
+			{
+				"buffer_size": 67546,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/static/assets/73e98a54.layout.min.js",
+			"settings":
+			{
+				"buffer_size": 13546,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/static/assets/9c06ebb0.layout.min.css",
+			"settings":
+			{
+				"buffer_size": 7218,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/htdocs/zybl/index_.html",
+			"settings":
+			{
+				"buffer_size": 36484,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Rust/Cargo.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust/Cargo.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Rust/Cargo.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Rust/Rust.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust/Rust.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/Rust/Cargo.sublime-build",
+				"Test"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Rust/Rust.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust/Rust.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/Rust/Rust.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"priv",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"Alignment",
+				"Preferences: Alignment File Settings – Syntax Specific – User"
+			],
+			[
+				"phpfmt",
+				"phpfmt: analyse this"
+			],
+			[
+				"php",
+				"phpfmt: toggle PSR2"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installedpackages_path(); urllib.request.install_opener( urllib.request.build_opener(urllibrequestProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http:/sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );",
+			"pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path();",
+			"import urllib.request,os;",
+			"\nimport urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())\n",
+			"plugins loaded"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/htdocs/zybl",
+		"/opt/htdocs/zybl/cmd",
+		"/opt/htdocs/zybl/cmd/js",
+		"/opt/htdocs/zybl/ghosert",
+		"/opt/htdocs/zybl/settings",
+		"/opt/htdocs/zybl/static",
+		"/opt/htdocs/zybl/static/assets",
+		"/opt/htdocs/zybl/static/editor",
+		"/opt/htdocs/zybl/static/font-awesome",
+		"/opt/htdocs/zybl/static/icomoon",
+		"/opt/htdocs/zybl/static/img",
+		"/opt/htdocs/zybl/static/MathJax"
+	],
+	"file_history":
+	[
+		"/opt/htdocs/zybl/static/editor/libs/mathJax.js",
+		"/opt/htdocs/zybl/static/img/favicon.png",
+		"/opt/htdocs/js/proj/seajs_examples/README.md",
+		"/opt/htdocs/js/proj/seajs_examples/static/hello/package.json",
+		"/opt/htdocs/js/proj/seajs_examples/index.html",
+		"/usr/local/lib/node_modules/spm/node_modules/cmd-util/lib/ast.js",
+		"/usr/local/lib/node_modules/spm/node_modules/cmd-util/index.js",
+		"/opt/htdocs/js/seajs-3.0.0/Makefile",
+		"/opt/htdocs/js/seajs-3.0.0/component.json",
+		"/opt/htdocs/js/seajs-3.0.0/bower.json",
+		"/opt/htdocs/js/seajs-3.0.0/src/sea.js",
+		"/opt/htdocs/js/seajs-3.0.0/src/config.js",
+		"/opt/htdocs/js/seajs-3.0.0/.travis.yml",
+		"/opt/htdocs/js/seajs-3.0.0/docs/index.html",
+		"/opt/htdocs/js/seajs-3.0.0/index.html",
+		"/opt/htdocs/js/seajs-3.0.0/README.md",
+		"/opt/tools/zjl/MacConf/projects/php.sublime-workspace",
+		"/opt/tools/zjl/MacConf/projects/zjl.sublime-project",
+		"/opt/tools/zjl/MacConf/projects/keys/常用配置说明.md",
+		"/opt/tools/zjl/MacConf/dnsmasq/dnsmasq.d/common.conf",
+		"/Users/zhangjl/Documents/tbl_order_refound.sql",
+		"/opt/htdocs/hdlink/server/CarHelperServer/product_v2.0/application/docs/productv2.0接口文档.markdown",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/README.md",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Default (OSX).sublime-keymap",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/opt/src/Libc-1044.1.2/string/strlcpy.c",
+		"/opt/src/Libc-1044.1.2/darwin/kvm.c",
+		"/opt/src/Libc-1044.1.2/x86_64/string/strncpy.s",
+		"/opt/src/Libc-1044.1.2/x86_64/string/strlen.s",
+		"/opt/src/Libc-1044.1.2/darwin/atexit_receipt.c",
+		"/opt/src/Libc-1044.1.2/darwin/forceLibcToBuild.c",
+		"/opt/htdocs_c/rust/src/main.rs",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/opt/tools/php5.6.8/etc/php.ini",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/opt/tools/zjl/MacConf/keys/keys.txt",
+		"/opt/tools/zjl/MacConf/keys/常用配置说明.md",
+		"/opt/tools/zjl/MacConf/keys/常用配置说明.markdown",
+		"/opt/tools/zjl/conf/ngx_conf/nginx.conf",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Package Control.user-ca-bundle",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Package Control.system-ca-bundle",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/public.conf",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/ze.conf",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/Package Control.cache/01524fae79697630d0454ba3fabd9414.info",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/opt/tools/zjl/MacConf/zjl.sublime-project",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/localhost.conf",
+		"/opt/tools/php5.6.8/etc/php-fpm.conf",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/jkw.lo.conf",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/zen.conf",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/common.conf",
+		"/opt/tools/zjl/conf/ngx_conf/vhost/hd.conf",
+		"/Users/zhangjl/.ngrok2/ngrok.yml",
+		"/opt/projects/hdlink/server/server.txt",
+		"/opt/tools/zjl/conf/ngx_conf/autoload/common.conf",
+		"/opt/tools/zjl/conf/ngx_conf/autoload/gzip.conf",
+		"/opt/tools/zjl/MacConf/dnsmasq/dnsmasq.conf",
+		"/opt/tools/zjl/MacConf/dnsmasq/hosts",
+		"/Volumes/n1/opensrc/php/extension/swoole-src.git/examples/bench/http.go",
+		"/opt/tools/zjl/MacConf/php/php7.brew.txt",
+		"/usr/local/etc/php/7.0/php.ini",
+		"/usr/local/etc/php/7.0/php-fpm.conf",
+		"/Volumes/n1/000_mac_back/opt/htdocs/saapaa.com/swwoopo.sql",
+		"/opt/tools/zjl/bin/mysql5.6",
+		"/usr/local/Cellar/tmux/2.0/share/tmux/examples/xterm-keys.vim",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Measure-Program-Size.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Closure-Conversion.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/CPS-Conversion.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/CPS-Language.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/do-raytrace-test.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/do-raytrace.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Empty-Fix-Elimination.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Eta-Reduction.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Liftup-Fixes.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Machine-code-Generation-32.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Object-Language.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Primop-Optimization.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Propagation.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Register-Assignment.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Select-Optimization.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Set-Elimination.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Set.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Substitution.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/test.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Unused-Function-Elimination.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/wc-10sec.sh",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Assoc.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Alpha-Transformation.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Basic-Utility.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Beta-Contraction.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Beta-Expansion.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Id.scm",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/compiler/Readme",
+		"/Volumes/n1/opensrc/scheme/complier2/scheme-compiler/assembler/assembler.scm",
+		"/opt/tools/zjl/MacConf/dotNet/install.sh",
+		"/opt/tools/zjl/MacConf/xcode/xcode_plugin.sh",
+		"/opt/htdocs_c/rust/Cargo.toml",
+		"/opt/htdocs_c/rust/src/tmp1nfnt_",
+		"/opt/htdocs_c/rust/src/tmp4ctuzq",
+		"/opt/htdocs_c/rust/src/tmp6hnozc",
+		"/opt/htdocs_c/rust/src/tmpfcpwyr",
+		"/opt/htdocs_c/rust/src/tmps467xg",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/RustAutoComplete.sublime-settings",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Cache/Rust/RustSymbols.tmPreferences.cache",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/encoding_cache.json",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/User/phpfmt.sublime-settings",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/phpfmt/vet.php",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/phpfmt/README.md",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/phpfmt/php.tools.ini",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Packages/phpfmt/Default (OSX).sublime-keymap",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Installed Packages/SublimeLinter-contrib-rustc.sublime-package",
+		"/Users/zhangjl/Library/Application Support/Sublime Text 3/Installed Packages/Rust.sublime-package",
+		"/opt/src/MacVim-snapshot-76/mvim",
+		"/opt/csrc/c/t.s",
+		"/opt/csrc/c/ast.txt",
+		"/opt/csrc/c/helloword.c",
+		"/opt/tools/go/src/README",
+		"/opt/tools/go/src/dev.cc",
+		"/opt/csrc/c/t.c",
+		"/opt/csrc/c2/c2.cpp",
+		"/opt/csrc/c2/Makefile",
+		"/opt/tools/percona5.6.12/my.cnf",
+		"/opt/src/shttpd/shttpd.c",
+		"/opt/src/shttpd/Makefile",
+		"/opt/tools/blade/blade",
+		"/opt/tools/blade/example/run.sh"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"<!-- zybuluo's body -->",
+			"绑定",
+			"=>",
+			"'",
+			"refound",
+			"export",
+			"退款",
+			"theme",
+			"folders",
+			"url",
+			"status_path",
+			"gzip",
+			"listen-address",
+			"extension_dir",
+			"mysqlnd",
+			"opcache",
+			"var_dump",
+			"\\v？",
+			"worker_rlimit_nofile",
+			"!\");",
+			"innodb_thread_concurrency",
+			"thread_pool",
+			"expire_logs_days",
+			"innodb_flush_method",
+			"innodb_flush_log_at_trx_commit",
+			"auto_pre",
+			"error_log",
+			"_full_real_path",
+			"blade",
+			"option",
+			"getopts",
+			"option",
+			"extension_dir",
+			"open-files-limit",
+			"open_files",
+			"user",
+			"error",
+			"agraph",
+			"root",
+			",\n",
+			"localnet",
+			"listen",
+			"6",
+			"log",
+			"conf",
+			"hosts",
+			"/p/",
+			"resolv",
+			"resolve",
+			"log",
+			"error_rep",
+			"localnet",
+			"server=",
+			"/etc/hosts",
+			"127.0.0.1",
+			"user",
+			"address",
+			"127.0.0.1",
+			"no-hosts",
+			"strict",
+			"timezone",
+			"session.save",
+			"addShm",
+			"timezone",
+			"phpdbg",
+			"zend",
+			"intl",
+			"curl",
+			"inline",
+			"--with-pear",
+			"zip",
+			"iconv",
+			"wddx",
+			"sockets",
+			"ldap",
+			"--with-gettext",
+			"enable-gd-native-ttf",
+			"jpeg",
+			"with-curl",
+			"--with-bz2",
+			"--with-pcre-regex=",
+			"pcre",
+			"phpdbg",
+			"zend",
+			"freetype",
+			"^\\s*",
+			"^$",
+			"^\\s+$",
+			"\\r\\n",
+			"ps",
+			"private",
+			"    private $id;\n\n    private $caucus;\n\n    private $congress_numbers;\n\n    private $current;\n\n    private $description;\n\n    private $district;\n\n    private $enddate;\n\n    private $leadership_title;\n\n    private $party;\n\n    private $person;\n\n    private $phone;\n\n    private $role_type;\n\n    private $role_type_label;\n\n    private $senator_class;\n\n    private $senator_class_label;\n\n    private $senator_rank;\n\n    private $senator_rank_label;\n\n    private $startdate;\n\n    private $state;\n\n    private $title;\n\n    private $title_long;\nprivate",
+			"\"",
+			"\"\\d+\"=>\"",
+			"\"",
+			"\"\\d+\"=>\"",
+			"rc2",
+			"with-freetype-dir",
+			"with-gmp",
+			"--with-gmp",
+			"^$"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			":",
+			"",
+			"stopShm",
+			"",
+			"protected",
+			";",
+			"private $",
+			";",
+			"private $",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/opt/htdocs/zybl/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36091,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								469,
+								476
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "6d2a9779",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 136.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/opt/htdocs/zybl/www.zybuluo.com/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35573,
+								35581
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "html",
+							"buffer_scroll_name": "d63f7485",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 14365.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/opt/htdocs/zybl/static/assets/ac6caddd.base.lib.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 246611,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149431,
+								149431
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "592fc187",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/opt/htdocs/zybl/static/assets/e5248927.base.lib.min.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 147888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16,
+								16
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "css",
+							"buffer_scroll_name": "37add71f",
+							"spell_check": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 134478.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/opt/htdocs/zybl/static/editor/libs/uml/sequence-diagram-min-1.0.4.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 87580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87580,
+								87580
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "f86a51d3",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/opt/htdocs/zybl/settings/account",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6734,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "html",
+							"buffer_scroll_name": "86372e5b",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/opt/htdocs/zybl/ghosert/note/102771",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "html",
+							"buffer_scroll_name": "ffd492a3",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/opt/htdocs/zybl/ghosert/note/11231",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "html",
+							"buffer_scroll_name": "2dade159",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/opt/htdocs/zybl/ghosert/note/2",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "html",
+							"buffer_scroll_name": "d1c44bbb",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1951.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/opt/htdocs/zybl/cmd/js/blocs.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "e395bf37",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1421.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/opt/htdocs/zybl/cmd/js/bootstrap.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 67546,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "ca2414ec",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 43430.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/opt/htdocs/zybl/static/assets/73e98a54.layout.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13546,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								148,
+								155
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "05f220d6",
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/opt/htdocs/zybl/static/assets/9c06ebb0.layout.min.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7218,
+								7218
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "css",
+							"buffer_scroll_name": "4d6155d3",
+							"spell_check": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 56811.0,
+						"translation.y": -0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/opt/htdocs/zybl/index_.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2054,
+								2077
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"bs_sintax": "html",
+							"buffer_scroll_name": "f4b11e0a",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1327.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 186.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.markdown":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "",
+	"project": "js.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/opt/tools/zjl/MacConf/projects/php_zjl.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 435.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

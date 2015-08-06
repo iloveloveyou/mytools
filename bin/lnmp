@@ -6,6 +6,8 @@ PHP_FPM=${PHP_DIR}sbin/php-fpm
 PHP_PID=`cat ${PHP_DIR}var/run/php-fpm.pid`
 MYSQL_SHELL=/opt/tools/zjl/bin/mysql5.6
 
+#这是设置超时时间的，计时单位是：秒
+#set timeout 30
 
 # hdiutil mount facter-1.7.2.dmg
 # installer -package /Volumes/facter-1.7.2/facter-1.7.2.pkg/ -target /Volumes/Macintosh\ HD
@@ -37,18 +39,19 @@ function stopShm()
 function start(){
 	startShm
 	$PHP_FPM
-	$MYSQL_SHELL start
+	#$MYSQL_SHELL start
 	sudo $NGX_BIN
 }
 function stop(){
 	hdiutil unmount /Volumes/shm
 	kill -INT $PHP_PID
-	$MYSQL_SHELL stop
+	#$MYSQL_SHELL stop
 	sudo $NGX_BIN -s quit
 	#sudo ps aux|grep nginx|grep -v grep|awk '{print $2}'|xargs -t -I{} kill -9 {}
 }
 
 function reload(){
+	exit;
 	kill -USR2 $PHP_PID
 	sudo $NGX_BIN -s reload
 	sleep 1
@@ -64,10 +67,11 @@ case $1 in
 		start
 	;;
 esac
+echo $1;
 echo "PHP 进程:"
-ps aux|grep php-fpm
+# ps aux|grep php-fpm
 echo "Nginx 进程:"
-ps aux|grep nginx
+# ps aux|grep nginx
 
 
 

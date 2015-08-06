@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "/opt/htdocs/js"
+		},
+		{
+			"path": "/usr/local/lib/node_modules"
+		},
+		{
+			"path": "/opt/htdocs/zybl"
+		}
+	]
+}

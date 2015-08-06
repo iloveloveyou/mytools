@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": "/opt/projects/hdlink"
+		},
+		{
+			"path": "/opt/htdocs/wechat"
+		},
+		{
+			"path": "/opt/htdocs/hdlink/server/CarHelperServer/product_v2.0"
+		},
+		{
+			"path": "/opt/htdocs/hdlink/server/CarHelperServer/hadlink91_product"
+		},
+		{
+			"path": "/opt/htdocs/yiphp"
+		}
+	]
+}

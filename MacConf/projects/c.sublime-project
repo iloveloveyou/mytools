@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"path": "/opt/src/bigloo4.2a"
+		},
+		{
+			"path": "/opt/htdocs_c/nasm_linux_ex"
+		},
+		{
+			"path": "/opt/vmvare/centos6.4_i386"
+		},
+		{
+			"path": "/Volumes/n1/opensrc/lvs_proxy/haproxy.git"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "/opt/android/demo"
+		}
+	]
+}

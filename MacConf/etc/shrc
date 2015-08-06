@@ -1,0 +1,134 @@
+#!/bin/sh
+#Productivity
+alias ll='ls -alhG'
+#alias l='ls -alG'
+alias l='k'
+alias ..="cd .."
+alias ...="cd ../.."
+alias h='cd ~'
+alias c="clear"
+mcd() { mkdir -p "$1"; cd "$1";}
+cls() { cd "$1"; ls;}
+backup() { cp "$1"{,.bak};}
+#讨厌通过手工比较文件的md5校验值 md5check[文件][校验值]
+md5check() { md5sum "$1" | grep "$2";}
+#很容易用你上一个运行的命令创建一个脚本：makescript [脚本名字.sh]
+alias makescript="fc -rnl | head -1 >"
+#瞬间产生一个强壮的密码
+alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
+alias histg="history | grep"
+
+#System info
+alias cmount="mount | column -t"
+#以树形结构递归地显示目录结构
+alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
+#安装文件在磁盘存储的大小排序，显示当前目录的文件列表
+sbs() { du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**30? ($1/2**30, "G"): $1>=2**20? ($1/2**20, "M"): $1>=2**10? ($1/2**10, "K"): ($1, "")}e';}
+#接管某个进程的标准输出和标准错误。注意你需要安装了 strace
+alias intercept="sudo strace -ff -e trace=write -e write=1,2 -p"
+#查看你还有剩下多少内存
+alias meminfo='free -m -l -t'
+alias psg="ps aux | grep"
+#显示当前音量设置
+alias volume="amixer get Master | sed '1,4 d' | cut -d [ -f 2 | cut -d ] -f 1"
+
+
+export DB_PATH=/opt/tools/mysql/bin
+export USR_PATH=/opt/tools/zjl/bin:/opt/tools/zjl/bin/links
+export NIM_PKG_PATH=/Users/zhangjl/.nimble/pkgs:/Users/zhangjl/.babel/pkgs
+export GOPATH=/opt/go/3rdpkg:/opt/tools/go/go:/opt/go/zjl
+export GOROOT=/opt/tools/go/go
+export GOROOT_BOOTSTRAP=/opt/tools/go/go-bootstrap
+export GOOS=darwin
+export GOARCH=amd64
+export PATH=$GOROOT/bin:$USR_PATH:$NIM_PKG_PATH:$DB_PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH
+export KAWAPATH=/opt/tools/kawa2.0
+export PHPPATH=/opt/tools/php/bin
+export php7=/usr/local/opt/php70/bin
+export SVNPATH=/opt/tools/svn/svn/bin
+export PATH=/opt/tools/bin:$PHPPATH:$KAWAPATH/bin:$PATH:$GOROOT/bin
+export RUST_SRC_PATH=/opt/src/rustc-1.0.0/src
+#export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+ulimit -S -n 2048
+
+#proxy
+server=http://127.0.0.1:7070/
+#export http_proxy=$server
+#export https_proxy=$server
+##########################################################
+#                         JAVA
+#########################################################
+#指定默认版本
+export JAVA_8_HOME=`/usr/libexec/java_home`
+export JAVA_6_HOME=`/usr/libexec/java_home -d 64 -v 1.6`
+export JAVA_HOME=$JAVA_8_HOME;
+export CLASSPATH=.:/opt/tools/kawa2.0/share/java/kawa.jar
+alias jdk6="export JAVA_HOME=$JAVA_6_HOME"
+alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home
+#指定自定义版
+#export JAVA_HOME=$(/usr/libexec/java_home -d 64 -v 1.8)
+#列出所有Java版本
+#/usr/libexec/java_home -V
+
+export NODE_PATH=/usr/local/lib/node_modules;
+
+#man colorfull
+# less color configure
+# blue
+export LESS_TERMCAP_mb=$'\E[01;34m'
+# red
+export LESS_TERMCAP_md=$'\E[01;31m'
+# magenta
+export LESS_TERMCAP_me=$'\E[01;35m'
+# write
+export LESS_TERMCAP_se=$'\E[0m'
+# yellow
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+# cyan
+export LESS_TERMCAP_ue=$'\E[01;36m'
+# green
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+
+
+zextract() { 
+    if [ -f $1 ] ; then 
+      case $1 in 
+        *.tar.bz2)   tar xjf $1     ;; 
+        *.tar.gz)    tar xzf $1     ;; 
+        *.bz2)       bunzip2 $1     ;; 
+        *.rar)       unrar e $1     ;; 
+        *.gz)        gunzip $1      ;; 
+        *.tar)       tar xf $1      ;; 
+        *.tbz2)      tar xjf $1     ;; 
+        *.tgz)       tar xzf $1     ;; 
+        *.zip)       unzip $1       ;; 
+        *.Z)         uncompress $1  ;; 
+        *.7z)        7z x $1        ;; 
+        *)     echo "'$1' cannot be extracted via extract()" ;; 
+         esac 
+     else 
+         echo "'$1' is not a valid file" 
+     fi 
+}
+
+#Network
+#下载整个网站：websiteget [URL]
+alias websiteget="wget --random-wait -r -p -e robots=off -U mozilla"
+#显示出哪个应用程序连接到网络
+alias listen="lsof -P -i -n"
+#显示出活动的端口
+alias port='netstat -tulanp'
+#显示你的谷歌邮件里未读邮件的数量：gmail [用户名]
+#gmail() { curl -u "$1" --silent "https://mail.google.com/mail/feed/atom" | sed -e 's/<\/fullcount.*/\n/' | sed -e 's/.*fullcount>//'}
+#获得你的公网IP地址和主机名
+#alias ipinfo="curl ifconfig.me && curl ifconfig.me/host"
+#返回你的当前IP地址的地理位置
+#getlocation() { lynx -dump http://www.ip-adress.com/ip_tracer/?QRY=$1|grep address|egrep 'city|state|country'|awk '{print $3,$4,$5,$6,$7,$8}'|sed 's\ip address flag \\'|sed 's\My\\';}
+
+#Funny
+#绘制内核模块依赖曲线图。需要可以查看图片
+#kernelgraph() { lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "\"$_[0]\" -> \"$_\"\n" for split/,/,$_[3]}print "}"' | dot -Tpng | display -;}
+#在那些非技术人员的眼里你看起来是总是那么忙和神秘
+#alias busy="cat /dev/urandom | hexdump -C | grep 'ca fe'"
